@@ -22,6 +22,55 @@ The Ising model is a mathematical model of ferromagnetism in statistical mechani
 
 In this implementation, we simulate a 2D grid of spins and compute the energy and magnetization of the system using the **Metropolis algorithm**. The simulation considers interactions between nearest neighbors and can include an external magnetic field.
 
+# 2D Ising Model: Simulation and Analysis
+
+The 2D Ising model is a fundamental model in statistical mechanics and computational physics. It represents a system of interacting spins (magnetic moments) on a lattice and is used to study phase transitions, magnetism, and critical phenomena. The spins can take values of \(S_{i,j} = +1\) (spin-up) or \(S_{i,j} = -1\) (spin-down), and their interactions are described by the Hamiltonian, \(H(S)\), which sums the energy contributions from nearest-neighbor interactions between spins. This project will involve simulating the Ising model using the Metropolis-Hastings algorithm and studying its thermodynamic properties through numerical experiments.
+
+## Problem Outline:
+
+### Hamiltonian of the Ising Model:
+\[
+H(S) = -J \sum_{\langle \mu \nu \rangle} S_\mu S_\nu
+\]
+
+Where \(J\) is the coupling constant, \(\langle \mu \nu \rangle\) refers to a summation over neighboring spin pairs, and \(S_\mu\) represents the spin at lattice site \(\mu\).
+- If \(J > 0\), the system is ferromagnetic (spins prefer alignment).
+- If \(J < 0\), the system is antiferromagnetic (spins prefer anti-alignment).
+
+### Boltzmann Weight for Canonical Ensemble:
+The probability weight of a given spin configuration \(S\) is determined by the Boltzmann factor:
+\[
+w(S) = \frac{e^{-H(S)/(k_B T)}}{Z}
+\]
+Where \(Z\) is the partition function and \(T\) is the temperature.
+
+### Physical Quantities of Interest:
+- **Energy per spin:**
+\[
+E = \sum_S w(S) H(S)
+\]
+- **Magnetization per spin:**
+\[
+M = \sum_S w(S) \left( \sum_\mu S_\mu \right)
+\]
+
+### Simulation Method:
+The **Metropolis-Hastings algorithm** is used to update the spin configuration. A single spin flip is proposed at each lattice site, and the change in energy is evaluated. The transition probability is governed by the Metropolis ratio:
+\[
+\frac{w(S')}{w(S)} = e^{-[H(S') - H(S)] / (k_B T)}
+\]
+
+For a single spin flip, this simplifies to:
+\[
+\frac{w(S')}{w(S)} = e^{-2J S_{i,j} [S_{i+1,j} + S_{i-1,j} + S_{i,j+1} + S_{i,j-1}] / (k_B T)}
+\]
+
+### Tasks:
+- **Simulate** a 16x16 Ising lattice with periodic boundary conditions.
+- **Compute and plot** energy and magnetization per spin for various values of the coupling constant \(J\).
+- **Extend** the model by including an external magnetic field \(B\).
+
+
 ## Features
 
 - **2D Lattice**: Simulates spins on a \(n \times n\) lattice.
