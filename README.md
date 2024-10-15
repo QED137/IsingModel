@@ -87,3 +87,45 @@ Make sure you have the following Python packages installed:
 ```bash
 numpy
 matplotlib
+```
+# How to Run
+```bash
+git clone repository
+cd repo_directory
+python isingwithmagnetic.py
+```
+## Code Structure
+isingwithmagnetic.py: The main script containing the 2D Ising model simulation with an external magnetic field. It includes:
+  -Initialization of the lattice.
+  - Implementation of the Metropolis-Hastings algorithm.
+  - Calculation of energy and magnetization.
+  - Visualization of results using matplotlib.
+
+## Key Functions:
+   - initialize_lattice(n): Initializes the lattice with random spins of +1 or -1.
+   - metropolis_ising_with_field(lattice, J, B, kBT, n_steps): Runs the Metropolis algorithm for a given number of steps, considering both nearest-neighbor interactions and an external magnetic field.
+   - calculate_energy_with_field(lattice, J, B): Computes the energy of the system, including the contribution of the external magnetic field.
+## Simulation Parameters
+   - Lattice Size (n): The number of spins in each dimension of the square lattice (e.g., 16x16).
+   - Interaction Strength (J): Strength of the interaction between neighboring spins.
+   - External Magnetic Field (B): Strength of the external magnetic field.
+   - Temperature (kBT): Temperature of the system in natural units.
+   - Number of Steps (n_steps): The number of iterations for the Metropolis algorithm.
+### Example of adjusting parameters in the script:
+```bash
+n = 16           # Lattice size (n x n)
+J = 0.3          # Interaction strength
+B = 0.5          # Magnetic field strength
+kBT = 1.0        # Temperature
+n_steps = 500    # Number of Metropolis steps
+```
+
+LICENSE @MIT
+
+## Future Work
+
+### Possible extensions of this project include:
+   - Simulating the Ising model in 3D.
+   - Investigating phase transitions as the temperature varies.
+   - Parallelizing the code to speed up simulations for larger lattice sizes.
+   - Exploring the Ising model in the presence of different types of external fields (e.g., varying fields over time).
