@@ -119,8 +119,22 @@ B = 0.5          # Magnetic field strength
 kBT = 1.0        # Temperature
 n_steps = 500    # Number of Metropolis steps
 ```
+## Results and Visualization
+  - Energy vs Iterations: The energy per spin is plotted against the number of iterations.
+ - Magnetization vs Iterations: The magnetization per spin is plotted against the number of iterations.
+
+The simulation will generate two plots showing how the energy and magnetization evolve over time for the specified parameters.
+
+Sample Output:
+ 
+ 
+     Energy per Spin vs Iterations
+    Magnetization per Spin vs Iterations
 
 LICENSE @MIT
+
+This structure is common for open-source projects, ensuring that anyone using your project understands its licensing terms.
+
 
 ## Future Work
 
@@ -129,3 +143,4 @@ LICENSE @MIT
    - Investigating phase transitions as the temperature varies.
    - Parallelizing the code to speed up simulations for larger lattice sizes.
    - Exploring the Ising model in the presence of different types of external fields (e.g., varying fields over time).
+
